@@ -1,0 +1,23 @@
+{
+    "name": "augustash/module-sales-sequence-customordernumber",
+    "license": "OSL-3.0",
+    "type": "magento2-module",
+    "description": "Allow admins to set custom prefix, suffix, and leading zero length values for the order numbers, invoices, shipments, and credit memos by overriding the Magento_SalesSequence module's default pattern",
+    "require": {
+        "magento/module-sales-sequence": "100.*"
+    },
+    "authors":[
+        {
+            "name":"Josh Johnson",
+            "email":"josh@augustash.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Augustash\\CustomOrderNumber\\": ""
+        }
+    }
+}

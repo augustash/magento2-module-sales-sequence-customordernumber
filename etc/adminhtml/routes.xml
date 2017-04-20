@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="augustash_customordernumber" frontName="augustash_customordernumber">
+            <module name="Augustash_CustomOrderNumber" before="Magento_Backend" />
+        </route>
+    </router>
+</config>

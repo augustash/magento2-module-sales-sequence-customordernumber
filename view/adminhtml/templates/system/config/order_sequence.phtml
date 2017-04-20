@@ -1,0 +1,33 @@
+<?php /* @var $block \Augustash\CustomOrderNumber\Block\Adminhtml\System\Config\Sequence\Order */ ?>
+<script>
+require([
+    'jquery',
+    'prototype',
+], function(jQuery){
+    function applyOrderSequence() {
+        params = {
+            'website_id': jQuery('#website_switcher').val(),
+            'store_view_id': jQuery('#store_switcher').val(),
+        };
+
+        new Ajax.Request('<?php /* @escapeNotVerified */ echo $block->getAjaxUrl() ?>', {
+            loaderArea:     true,
+            asynchronous:   true,
+            parameters:     params,
+            onSuccess: function(transport) {
+                var response = JSON.parse(transport.responseText);
+                // console.log('response:', response);
+                if (response.error == true) {
+                    alert(response.reason);
+                }
+            }
+        });
+    }
+
+    jQuery('#apply_order_sequence_button').click(function () {
+        applyOrderSequence();
+    });
+});
+</script>
+
+<?php echo $block->getButtonHtml() ?>
