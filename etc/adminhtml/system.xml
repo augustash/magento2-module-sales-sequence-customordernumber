@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="augustash" translate="label" sortOrder="10">
+           <label><![CDATA[<a href="https://www.augustash.com" target="_BLANK" title="August Ash, Inc.">August Ash Extensions</a>]]></label>
+       </tab>
+       <section id="augustash_customordernumber" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+           <class>separator-top</class>
+           <label><![CDATA[Custom Order Number]]></label>
+           <tab>augustash</tab>
+           <resource>Augustash_CustomOrderNumber::config</resource>
+           <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+               <label><![CDATA[General Settings]]></label>
+
+               <field id="enabled" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                   <label><![CDATA[Enable Extension]]></label>
+                   <comment><![CDATA[Enable or disable the ability to customize order numbers, invoice numbers, shipment numbers, etc.]]></comment>
+                   <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+               </field>
+            </group>
+
+            <group id="order" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label><![CDATA[Order Sequence]]></label>
+
+                <field id="instructions" translate="label comment" type="note" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Instructions]]></label>
+                    <comment><![CDATA[<style>code { display: margin-right: 1rem; color: #EC4431; font-weight bold; }</style>You can use these variables in <strong>Prefix</strong> and/or <strong>Suffix</strong> values: <ul style="padding-left:2rem;"><li><code>{yyyy}</code>: 4-digit year</li><li><code>{yy}</code>: 2-digit year</li><li><code>{mm}</code>: Numeric month with leading zero </li><li><code>{m}</code>: Numeric month with no leading zero </li><li><code>{dd}</code>: Day of the month with a leading zero </li><li><code>{d}</code>: Day of the month without a leading zero </li></ul>]]></comment>
+                </field>
+
+                <field id="prefix" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Prefix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>1</code>, <code>ORD-</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="suffix" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Suffix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>-WEB</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="start_counter_from" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Start Counter From]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1]]></comment>
+                </field>
+
+                <field id="counter_increment_step" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Counter Increment Step]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1 <br/><br/><strong>Example:</strong> the last order number was <code>000000010</code>, if the increment step is <code>5</code> then the next number will be <code>000000015</code>]]></comment>
+                </field>
+
+                <field id="number_length" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Number Length]]></label>
+                    <source_model>Augustash\CustomOrderNumber\Model\Config\Source\NumberLength</source_model>
+                    <comment><![CDATA[<strong>Default value:</strong> 9 (Magento's default length)<br/><br/>Total number of digits in the order number. If counter value is <code>15</code> and Number Length is <code>9</code>, the order number will be <code>000000015</code>. If the counter value is <code>1234</code> and Number Length is <code>6</code>, the order number will be <code>001234</code>.<br/><br/><strong>Set to <code>0</code> (zero)</strong> if you don't want to add leading zeros to the order number.]]></comment>
+                </field>
+
+                <field id="order_apply_to_sequence_profile" translate="label comment tooltip" type="button" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label></label>
+                    <frontend_model>Augustash\CustomOrderNumber\Block\Adminhtml\System\Config\Sequence\Order</frontend_model>
+                    <comment><![CDATA[<strong>IMPORTANT:</strong> You <strong>must </strong> save your changes <strong>BEFORE</strong> you click the Apply Order Sequence button!]]></comment>
+                </field>
+            </group>
+
+            <group id="invoice" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label><![CDATA[Invoice Sequence]]></label>
+
+                <field id="instructions" translate="label comment" type="note" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Instructions]]></label>
+                    <comment><![CDATA[<style>code { display: margin-right: 1rem; color: #EC4431; font-weight bold; }</style>You can use these variables in <strong>Prefix</strong> and/or <strong>Suffix</strong> values: <ul style="padding-left:2rem;"><li><code>{yyyy}</code>: 4-digit year</li><li><code>{yy}</code>: 2-digit year</li><li><code>{mm}</code>: Numeric month with leading zero </li><li><code>{m}</code>: Numeric month with no leading zero </li><li><code>{dd}</code>: Day of the month with a leading zero </li><li><code>{d}</code>: Day of the month without a leading zero </li></ul>]]></comment>
+                </field>
+
+                <field id="prefix" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Prefix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>1</code>, <code>INV-</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="suffix" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Suffix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>-WEB</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="start_counter_from" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Start Counter From]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1]]></comment>
+                </field>
+
+                <field id="counter_increment_step" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Counter Increment Step]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1 <br/><br/><strong>Example:</strong> the last invoice number was <code>000000010</code>, if the increment step is <code>5</code> then the next number will be <code>000000015</code>]]></comment>
+                </field>
+
+                <field id="number_length" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Number Length]]></label>
+                    <source_model>Augustash\CustomOrderNumber\Model\Config\Source\NumberLength</source_model>
+                    <comment><![CDATA[<strong>Default value:</strong> 9 (Magento's default length)<br/><br/>Total number of digits in the invoice number. If counter value is <code>15</code> and Number Length is <code>9</code>, the invoice number will be <code>000000015</code>. If the counter value is <code>1234</code> and Number Length is <code>6</code>, the invoice number will be <code>001234</code>.<br/><br/><strong>Set to <code>0</code> (zero)</strong> if you don't want to add leading zeros to the invoice number.]]></comment>
+                </field>
+
+                <field id="order_apply_to_sequence_profile" translate="label comment tooltip" type="button" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label></label>
+                    <frontend_model>Augustash\CustomOrderNumber\Block\Adminhtml\System\Config\Sequence\Invoice</frontend_model>
+                    <comment><![CDATA[<strong>IMPORTANT:</strong> You <strong>must </strong> save your changes <strong>BEFORE</strong> you click the Apply Invoice Sequence button!]]></comment>
+                </field>
+            </group>
+
+            <group id="shipment" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label><![CDATA[Shipment Sequence]]></label>
+
+                <field id="instructions" translate="label comment" type="note" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Instructions]]></label>
+                    <comment><![CDATA[<style>code { display: margin-right: 1rem; color: #EC4431; font-weight bold; }</style>You can use these variables in <strong>Prefix</strong> and/or <strong>Suffix</strong> values: <ul style="padding-left:2rem;"><li><code>{yyyy}</code>: 4-digit year</li><li><code>{yy}</code>: 2-digit year</li><li><code>{mm}</code>: Numeric month with leading zero </li><li><code>{m}</code>: Numeric month with no leading zero </li><li><code>{dd}</code>: Day of the month with a leading zero </li><li><code>{d}</code>: Day of the month without a leading zero </li></ul>]]></comment>
+                </field>
+
+                <field id="prefix" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Prefix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>1</code>, <code>SHIP-</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="suffix" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Suffix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>-WEB</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="start_counter_from" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Start Counter From]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1]]></comment>
+                </field>
+
+                <field id="counter_increment_step" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Counter Increment Step]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1 <br/><br/><strong>Example:</strong> the last shipment number was <code>000000010</code>, if the increment step is <code>5</code> then the next number will be <code>000000015</code>]]></comment>
+                </field>
+
+                <field id="number_length" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Number Length]]></label>
+                    <source_model>Augustash\CustomOrderNumber\Model\Config\Source\NumberLength</source_model>
+                    <comment><![CDATA[<strong>Default value:</strong> 9 (Magento's default length)<br/><br/>Total number of digits in the shipment number. If counter value is <code>15</code> and Number Length is <code>9</code>, the shipment number will be <code>000000015</code>. If the counter value is <code>1234</code> and Number Length is <code>6</code>, the shipment number will be <code>001234</code>.<br/><br/><strong>Set to <code>0</code> (zero)</strong> if you don't want to add leading zeros to the shipment number.]]></comment>
+                </field>
+
+                <field id="order_apply_to_sequence_profile" translate="label comment tooltip" type="button" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label></label>
+                    <frontend_model>Augustash\CustomOrderNumber\Block\Adminhtml\System\Config\Sequence\Shipment</frontend_model>
+                    <comment><![CDATA[<strong>IMPORTANT:</strong> You <strong>must </strong> save your changes <strong>BEFORE</strong> you click the Apply Shipment Sequence button!]]></comment>
+                </field>
+            </group>
+
+            <group id="creditmemo" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label><![CDATA[Credit Memo Sequence]]></label>
+
+                <field id="instructions" translate="label comment" type="note" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Instructions]]></label>
+                    <comment><![CDATA[<style>code { display: margin-right: 1rem; color: #EC4431; font-weight bold; }</style>You can use these variables in <strong>Prefix</strong> and/or <strong>Suffix</strong> values: <ul style="padding-left:2rem;"><li><code>{yyyy}</code>: 4-digit year</li><li><code>{yy}</code>: 2-digit year</li><li><code>{mm}</code>: Numeric month with leading zero </li><li><code>{m}</code>: Numeric month with no leading zero </li><li><code>{dd}</code>: Day of the month with a leading zero </li><li><code>{d}</code>: Day of the month without a leading zero </li></ul>]]></comment>
+                </field>
+
+                <field id="prefix" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Prefix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>1</code>, <code>CREDIT-</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="suffix" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Suffix]]></label>
+                    <comment><![CDATA[<strong>Examples:</strong> <code>-WEB</code>, <code>WEB-{yyyy}-{mm}-{dd}</code>]]></comment>
+                </field>
+
+                <field id="start_counter_from" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Start Counter From]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1]]></comment>
+                </field>
+
+                <field id="counter_increment_step" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Counter Increment Step]]></label>
+                    <comment><![CDATA[<strong>Default value:</strong> 1 <br/><br/><strong>Example:</strong> the last credit memo number was <code>000000010</code>, if the increment step is <code>5</code> then the next number will be <code>000000015</code>]]></comment>
+                </field>
+
+                <field id="number_length" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[Number Length]]></label>
+                    <source_model>Augustash\CustomOrderNumber\Model\Config\Source\NumberLength</source_model>
+                    <comment><![CDATA[<strong>Default value:</strong> 9 (Magento's default length)<br/><br/>Total number of digits in the credit memo number. If counter value is <code>15</code> and Number Length is <code>9</code>, the credit memo number will be <code>000000015</code>. If the counter value is <code>1234</code> and Number Length is <code>6</code>, the credit memo number will be <code>001234</code>.<br/><br/><strong>Set to <code>0</code> (zero)</strong> if you don't want to add leading zeros to the credit memo number.]]></comment>
+                </field>
+
+                <field id="order_apply_to_sequence_profile" translate="label comment tooltip" type="button" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label></label>
+                    <frontend_model>Augustash\CustomOrderNumber\Block\Adminhtml\System\Config\Sequence\Creditmemo</frontend_model>
+                    <comment><![CDATA[<strong>IMPORTANT:</strong> You <strong>must </strong> save your changes <strong>BEFORE</strong> you click the Apply Credit Memo Sequence button!]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
