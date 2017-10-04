@@ -6,18 +6,9 @@ Allow admins to set custom prefix, suffix, and leading zero length values for th
 
 ## Installation
 
-In your project's `composer.json` file, add the following lines to the `require` and `repositories` sections:
+### Composer
 
-```js
-{
-    "require": {
-        "augustash/module-sales-sequence-customordernumber": "dev-master"
-    },
-    "repositories": {
-        "augustash-customordernumber": {
-            "type": "vcs",
-            "url": "https://github.com/augustash/magento2-module-sales-sequence-customordernumber.git"
-        }
-    }
-}
+```bash
+$ composer config repositories.augustash-core vcs https://github.com/augustash/magento2-module-sales-sequence-customordernumber.git
+$ composer require augustash/module-sales-sequence-customordernumber:~1.0.2
 ```
