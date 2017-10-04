@@ -4,7 +4,8 @@
     "type": "magento2-module",
     "description": "Allow admins to set custom prefix, suffix, and leading zero length values for the order numbers, invoices, shipments, and credit memos by overriding the Magento_SalesSequence module's default pattern",
     "require": {
-        "magento/module-sales-sequence": "100.*"
+        "magento/module-sales-sequence": "100.*",
+        "augustash/module-core": "~1.0.0"
     },
     "authors":[
         {
@@ -18,6 +19,12 @@
         ],
         "psr-4": {
             "Augustash\\CustomOrderNumber\\": ""
+        }
+    },
+    "repositories": {
+        "augustash-core": {
+            "type": "vcs",
+            "url": "https://github.com/augustash/magento2-module-augustash-core.git"
         }
     }
 }
